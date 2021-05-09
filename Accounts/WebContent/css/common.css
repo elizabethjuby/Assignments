@@ -1,0 +1,47 @@
+body
+{
+	background: url(../image/bg7.jpg);
+	font-family: sans-serif;
+	background-size: cover;
+}
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+
+nav {
+    background-color: #28a745;
+}
+
+nav a {
+	color: white !important;
+}
+
+.ghead {
+	color: green;
+	font-size: 1.8em;	
+	font-weight: bold;
+	text-align: center;
+	
+}
+
+.headbar {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: #28a745;
+    border-color: green;
+}

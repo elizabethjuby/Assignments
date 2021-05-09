@@ -1,0 +1,129 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background: url(../image/bgimg3.jpg);
+	font-family: sans-serif;
+	background-size: cover;
+	
+	
+	
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.logo {
+  overflow: hidden;
+  text-align: right;
+  position: right;
+  margin: 0px 100px;
+  height: 60px;
+ 
+  color: blue;
+  font-family: Arial;
+}
+.loginBox
+{
+	position : absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 350px;
+	min-height:200px;
+	background:#fff;
+	border-radius:10px;
+	padding:40px;
+	box-sizing: border-box;
+	
+}
+
+
+.user
+{
+	margin:0 auto;
+	display: block;
+	margin-bottom: 20px;
+}
+h3
+{
+	margin :0;
+padding :0 0 20px;
+color:#262626;
+text-align:center
+
+
+}
+
+.loginBox input
+{
+	width: 100%;
+	margin-bottom: 20px;
+	
+
+}
+.loginBox input[type="text"],
+.loginBox input[type="password"]
+{
+	border: none;
+	border-bottom: 2px solid #262626;
+	outline: none;
+	height: 40px;
+	color : #262626;
+	background: transparent;
+	font-size:16px;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.loginBox input[type="text"]:focus,
+.loginBox input[type="password"]:focus
+{
+	border-bottom: 2px solid #f00;
+}
+
+
+.inputBox
+{
+	Position: relative;
+}
+.inputBox span 
+{
+	position: absolute;
+	top: 10px;
+	color: #262626;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+
+.loginBox input[type="submit"]
+{
+	border: none;
+	outline: none;
+	height : 40px;
+	font-size:16px;
+	background:#ed292a;
+	color:#fff;
+}
+.loginBox a
+{
+	color : #262626;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-align :center;
+	display:block;
+
+}

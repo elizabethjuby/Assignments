@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   <constant name = "struts.devMode" value = "true" />
+   
+
+
+    <constant name="struts.serve.static" value="true" />
+    <constant name="struts.serve.static.browserCache" value="false" />
+   <package name = "Accounts" namespace = "/" extends = "struts-default">
+   
+   
+  <interceptors>
+    <interceptor name="login" class="com.test.accounts.interceptors.LoginInterceptor"/>
+    <interceptor-stack name="yourStack">
+        <interceptor-ref name="login"/>
+        <interceptor-ref name="defaultStack"/>
+    </interceptor-stack>
+   </interceptors>
+   
+    <default-interceptor-ref name="yourStack"/>
+    
+    <default-action-ref name="login" />
+    
+	<global-results>
+	    <result name="loginRedirect" type="redirect"> login </result>
+	    <result name = "notfound">jsp/notfound.jsp</result>
+	    <result name = "error">jsp/error.jsp</result>
+	</global-results>
+   
+     <action name = "login" class = "com.test.accounts.LoginAction" 
+         method = "loginpage">
+         <result>jsp/login.jsp</result>
+     </action>
+     <action name = "test"  class = "com.test.accounts.HelloAction">
+         <result name = "success">jsp/index2.jsp</result>
+     </action>
+     <action name = "user"  class = "com.test.accounts.HelloAction">
+         <result name = "success">jsp/userpage.jsp</result>
+     </action>
+     <action name = "admindates"  class = "com.test.accounts.HelloAction">
+         <result name = "success">jsp/admindatepage.jsp</result>
+     </action>
+     <action name = "adminamount"  class = "com.test.accounts.HelloAction">
+         <result name = "success">jsp/adminamountpage.jsp</result>
+     </action>
+      <action name = "amountstatement"  class = "com.test.accounts.AccountAction"
+     method = "getStatementViaAmount">
+         <result name = "success">jsp/index3.jsp</result>
+         <result name = "failed" type="redirect"> adminamountpagereload </result> 
+     </action>
+      <action name = "datestatement"  class = "com.test.accounts.AccountAction"
+     method = "getStatementViaDate">
+         <result name = "success">jsp/index3.jsp</result>
+         <result name = "failed" type="redirect"> admindatepagereload </result>        
+     </action>
+     
+     <action name = "admindatepagereload"  class = "com.test.accounts.AccountAction"
+     method="admindatepage">
+         <result name = "success">jsp/admindatepage.jsp</result>
+     </action>
+     
+     <action name = "adminamountpagereload"  class = "com.test.accounts.AccountAction"
+     method="adminamountpage">
+         <result name = "success">jsp/adminamountpage.jsp</result>
+     </action>
+     <action name = "userpage"  class = "com.test.accounts.AccountAction"
+     method="userpage">
+         <result name = "success">jsp/userpage.jsp</result>
+     </action>
+     <action name = "userstatementprocess"  class = "com.test.accounts.AccountAction"
+     method = "getStatementsForUser">
+         <result name = "success">jsp/index3.jsp</result>
+          <result name = "failed" type="redirect"> userpage </result>
+     </action>
+     <action name = "datedisplay"  class = "com.test.accounts.AccountAction"
+     method = "DateDetails">
+         <result name = "success">jsp/index3.jsp</result>
+     </action>
+      <action name = "statement"  class = "com.test.accounts.AccountAction"
+     method = "getStatementsForUser">
+         <result name = "success">jsp/index3.jsp</result>
+     </action>
+    
+     <action name = "home"  class = "com.test.accounts.HelloAction">
+         <result name = "success">jsp/home.jsp</result>
+     </action>
+     
+     <action name = "leadhome"  class = "com.test.accounts.LoginAction" method="executehome">
+         <result name = "success">jsp/home.jsp</result>
+     </action>
+     
+     <action name = "loginprocess" class = "com.test.accounts.LoginAction" 
+         method = "loginprocess">
+         <result name = "admin" type="redirect"> test </result>
+         <result name = "user" type="redirect"> user </result>
+         <result name = "failed" type="redirect"> login </result>
+     </action>
+     
+     
+      <action name = "logout" class = "com.test.accounts.LoginAction" 
+         method = "logout">
+         <result name = "success" type="redirect">login</result>
+         <result name = "failed" type="redirect">login</result>
+     </action>
+     
+          
+ </package>
+</struts>
